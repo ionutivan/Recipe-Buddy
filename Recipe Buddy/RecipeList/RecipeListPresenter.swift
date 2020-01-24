@@ -14,10 +14,10 @@ final class RecipeListPresenter {
     private let interactor: RecipeListInteractorProtocol
     private let wireframe: RecipeListWireframeInterface
     
-    init(wireframe: RecipeListWireframeInterface, interactor: RecipeListInteractorProtocol, UI: RecipeListViewProtocol) {
+    init(wireframe: RecipeListWireframeInterface, interactor: RecipeListInteractorProtocol, view: RecipeListViewProtocol) {
         self.wireframe = wireframe
         self.interactor = interactor
-        self.userInterface = UI
+        self.userInterface = view
     }
 }
 

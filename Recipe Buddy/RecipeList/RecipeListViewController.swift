@@ -6,4 +6,12 @@
 //  Copyright © 2020 Ionut Ivan. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class RecipeListViewController: UIViewController {
+    
+    var presenter: RecipeListPresenterInterface!
+    
+}
+
+extension RecipeListViewController: RecipeListViewProtocol {}
