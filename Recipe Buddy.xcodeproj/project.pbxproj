@@ -20,6 +20,7 @@
 		C64CD67A23DADB860043D768 /* RecipeListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67923DADB860043D768 /* RecipeListWireframe.swift */; };
 		C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */; };
 		C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */; };
+		C64CD68023DADF540043D768 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67F23DADF540043D768 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C64CD67923DADB860043D768 /* RecipeListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListWireframe.swift; sourceTree = "<group>"; };
 		C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInterfaces.swift; sourceTree = "<group>"; };
+		C64CD67F23DADF540043D768 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				C64CD67923DADB860043D768 /* RecipeListWireframe.swift */,
 				C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */,
 				C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */,
+				C64CD67F23DADF540043D768 /* Recipe.swift */,
 			);
 			path = RecipeList;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */,
 				C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */,
 				C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */,
+				C64CD68023DADF540043D768 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
