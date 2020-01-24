@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		C64CD64C23DAD5480043D768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD64B23DAD5480043D768 /* AppDelegate.swift */; };
 		C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD64D23DAD5480043D768 /* SceneDelegate.swift */; };
-		C64CD65023DAD5480043D768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD64F23DAD5480043D768 /* ViewController.swift */; };
-		C64CD65323DAD5480043D768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64CD65123DAD5480043D768 /* Main.storyboard */; };
 		C64CD65523DAD5490043D768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C64CD65423DAD5490043D768 /* Assets.xcassets */; };
 		C64CD65823DAD5490043D768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64CD65623DAD5490043D768 /* LaunchScreen.storyboard */; };
 		C64CD66323DAD54A0043D768 /* Recipe_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */; };
+		C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */; };
+		C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +30,14 @@
 		C64CD64823DAD5480043D768 /* Recipe Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64CD64B23DAD5480043D768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C64CD64D23DAD5480043D768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C64CD64F23DAD5480043D768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C64CD65223DAD5480043D768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C64CD65423DAD5490043D768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C64CD65723DAD5490043D768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C64CD65923DAD5490043D768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C64CD65E23DAD54A0043D768 /* Recipe BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Recipe BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe_BuddyTests.swift; sourceTree = "<group>"; };
 		C64CD66423DAD54A0043D768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
+		C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +79,9 @@
 		C64CD64A23DAD5480043D768 /* Recipe Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				C64CD66D23DAD6500043D768 /* Common */,
 				C64CD64B23DAD5480043D768 /* AppDelegate.swift */,
 				C64CD64D23DAD5480043D768 /* SceneDelegate.swift */,
-				C64CD64F23DAD5480043D768 /* ViewController.swift */,
-				C64CD65123DAD5480043D768 /* Main.storyboard */,
 				C64CD65423DAD5490043D768 /* Assets.xcassets */,
 				C64CD65623DAD5490043D768 /* LaunchScreen.storyboard */,
 				C64CD65923DAD5490043D768 /* Info.plist */,
@@ -97,6 +96,15 @@
 				C64CD66423DAD54A0043D768 /* Info.plist */,
 			);
 			path = "Recipe BuddyTests";
+			sourceTree = "<group>";
+		};
+		C64CD66D23DAD6500043D768 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */,
+				C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +190,6 @@
 			files = (
 				C64CD65823DAD5490043D768 /* LaunchScreen.storyboard in Resources */,
 				C64CD65523DAD5490043D768 /* Assets.xcassets in Resources */,
-				C64CD65323DAD5480043D768 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +207,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C64CD65023DAD5480043D768 /* ViewController.swift in Sources */,
+				C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */,
 				C64CD64C23DAD5480043D768 /* AppDelegate.swift in Sources */,
+				C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */,
 				C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,14 +233,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C64CD65123DAD5480043D768 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C64CD65223DAD5480043D768 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C64CD65623DAD5490043D768 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -371,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nasa.Recipe-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nasa.Recipe-Buddy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
