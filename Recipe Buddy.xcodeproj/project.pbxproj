@@ -14,6 +14,12 @@
 		C64CD66323DAD54A0043D768 /* Recipe_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */; };
 		C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */; };
 		C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */; };
+		C64CD67423DADB240043D768 /* RecipeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64CD67323DADB240043D768 /* RecipeList.storyboard */; };
+		C64CD67623DADB4B0043D768 /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67523DADB4B0043D768 /* RecipeListInteractor.swift */; };
+		C64CD67823DADB6B0043D768 /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67723DADB6B0043D768 /* RecipeListPresenter.swift */; };
+		C64CD67A23DADB860043D768 /* RecipeListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67923DADB860043D768 /* RecipeListWireframe.swift */; };
+		C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */; };
+		C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		C64CD66423DAD54A0043D768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
+		C64CD67323DADB240043D768 /* RecipeList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeList.storyboard; sourceTree = "<group>"; };
+		C64CD67523DADB4B0043D768 /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
+		C64CD67723DADB6B0043D768 /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
+		C64CD67923DADB860043D768 /* RecipeListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListWireframe.swift; sourceTree = "<group>"; };
+		C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
+		C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInterfaces.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 		C64CD64A23DAD5480043D768 /* Recipe Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				C64CD67223DADAE30043D768 /* RecipeList */,
 				C64CD66D23DAD6500043D768 /* Common */,
 				C64CD64B23DAD5480043D768 /* AppDelegate.swift */,
 				C64CD64D23DAD5480043D768 /* SceneDelegate.swift */,
@@ -105,6 +118,19 @@
 				C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C64CD67223DADAE30043D768 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				C64CD67323DADB240043D768 /* RecipeList.storyboard */,
+				C64CD67523DADB4B0043D768 /* RecipeListInteractor.swift */,
+				C64CD67723DADB6B0043D768 /* RecipeListPresenter.swift */,
+				C64CD67923DADB860043D768 /* RecipeListWireframe.swift */,
+				C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */,
+				C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */,
+			);
+			path = RecipeList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64CD67423DADB240043D768 /* RecipeList.storyboard in Resources */,
 				C64CD65823DAD5490043D768 /* LaunchScreen.storyboard in Resources */,
 				C64CD65523DAD5490043D768 /* Assets.xcassets in Resources */,
 			);
@@ -209,8 +236,13 @@
 			files = (
 				C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */,
 				C64CD64C23DAD5480043D768 /* AppDelegate.swift in Sources */,
+				C64CD67823DADB6B0043D768 /* RecipeListPresenter.swift in Sources */,
+				C64CD67623DADB4B0043D768 /* RecipeListInteractor.swift in Sources */,
+				C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */,
+				C64CD67A23DADB860043D768 /* RecipeListWireframe.swift in Sources */,
 				C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */,
 				C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */,
+				C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
