@@ -10,12 +10,15 @@ import Foundation
 
 final class RecipeListAPIService {
     
-    let session = URLSession(configuration: .default)
+    let session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol = URLSession.init(configuration: .default)) {
+        self.session = session
+    }
     
     func getItems(for parameters: [String], page: UInt) {
         let url = URL(string: "http://www.recipepuppy.com/api/?i=onions,garlic&p=1")!
         let request = URLRequest(url: url)
-        print("getItems")
         session.dataTask(with: request) { data, response, error in
             
             if let data = data {
