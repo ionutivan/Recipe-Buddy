@@ -21,6 +21,8 @@
 		C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */; };
 		C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */; };
 		C64CD68023DADF540043D768 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67F23DADF540043D768 /* Recipe.swift */; };
+		C64CD68223DF38E50043D768 /* RecipeListAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD68123DF38E50043D768 /* RecipeListAPIService.swift */; };
+		C64CD68423DF500D0043D768 /* URLSession+Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD68323DF500C0043D768 /* URLSession+Testing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInterfaces.swift; sourceTree = "<group>"; };
 		C64CD67F23DADF540043D768 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		C64CD68123DF38E50043D768 /* RecipeListAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListAPIService.swift; sourceTree = "<group>"; };
+		C64CD68323DF500C0043D768 /* URLSession+Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Testing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 			children = (
 				C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */,
 				C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */,
+				C64CD68323DF500C0043D768 /* URLSession+Testing.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				C64CD67923DADB860043D768 /* RecipeListWireframe.swift */,
 				C64CD67B23DADBB20043D768 /* RecipeListViewController.swift */,
 				C64CD67D23DADBD20043D768 /* RecipeListInterfaces.swift */,
+				C64CD68123DF38E50043D768 /* RecipeListAPIService.swift */,
 				C64CD67F23DADF540043D768 /* Recipe.swift */,
 			);
 			path = RecipeList;
@@ -244,9 +250,11 @@
 				C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */,
 				C64CD67A23DADB860043D768 /* RecipeListWireframe.swift in Sources */,
 				C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */,
+				C64CD68423DF500D0043D768 /* URLSession+Testing.swift in Sources */,
 				C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */,
 				C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */,
 				C64CD68023DADF540043D768 /* Recipe.swift in Sources */,
+				C64CD68223DF38E50043D768 /* RecipeListAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
