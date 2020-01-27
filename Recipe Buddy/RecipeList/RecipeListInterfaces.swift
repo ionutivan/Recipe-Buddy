@@ -8,7 +8,11 @@
 
 import Foundation
 
-protocol RecipeListViewInterface: AnyObject {}
+protocol RecipeListViewInterface: AnyObject {
+    func didTapFavoritesButton()
+    func didTapSearchButton(with text: String)
+    func didTapCell(for recipe: Recipe)
+}
 
 protocol RecipeListPresenterInterface {
     func viewDidLoad()
@@ -23,7 +27,7 @@ protocol RecipeListInteractorInterface: AnyObject {}
 protocol RecipeListViewProtocol: AnyObject {}
 
 enum RecipeListNavigationOption {
-    case detail
+    case detail(Recipe)
     case favorites
 }
 

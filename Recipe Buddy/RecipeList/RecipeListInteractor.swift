@@ -14,14 +14,13 @@ enum RecipeListError: Error {
 
 final class RecipeListInteractor {}
 
-
-
 protocol RecipeListInteractorProtocol: AnyObject {
-    func didFind(items: [Recipe]) -> Result<[Recipe], RecipeListError>
+    func searchItems(for text: String, page: UInt)
 }
 
 extension RecipeListInteractor: RecipeListInteractorProtocol {
-    func didFind(items: [Recipe]) -> Result<[Recipe], RecipeListError> {
-        return .success(items)
+    func searchItems(for text: String, page: UInt = 0) {
+        // call the API service
+        RecipeListAPIService().getItems(for: [], page: 0)
     }
 }
