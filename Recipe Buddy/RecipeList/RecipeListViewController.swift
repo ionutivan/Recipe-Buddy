@@ -12,6 +12,12 @@ final class RecipeListViewController: UIViewController {
     
     var presenter: RecipeListPresenterInterface!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.viewDidLoad()
+    }
+    
 }
 
 extension RecipeListViewController: RecipeListViewProtocol {}
