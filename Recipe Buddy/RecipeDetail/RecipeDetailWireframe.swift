@@ -27,6 +27,6 @@ class RecipeDetailWireframe: BaseWireframe {
 
 extension RecipeDetailWireframe: RecipeDetailWireframeProtocol {
     func navigate(to option: RecipeDetailNavigationOption) {
-        
+         
     }
 }

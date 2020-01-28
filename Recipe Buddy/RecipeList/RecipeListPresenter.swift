@@ -19,7 +19,7 @@ final class RecipeListPresenter {
     private let interactor: RecipeListInteractorProtocol
     private let wireframe: RecipeListWireframeInterface
     
-    private var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>!
+    var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>!
     
     
     init(wireframe: RecipeListWireframeInterface, interactor: RecipeListInteractorProtocol, view: RecipeListViewProtocol) {
@@ -38,18 +38,17 @@ final class RecipeListPresenter {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 10
+        (userInterface as! RecipeListViewController).delegate = self
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         return section
     }
     
-    
-    
 }
 
 extension RecipeListPresenter: RecipeListViewInterface {
     func didTapSearchButton(with text: String) {
-        interactor.searchItems(for: text, page: 0)
+        interactor.searchItems(for: text)
     }
     
     func didTapFavoritesButton() {
@@ -67,7 +66,7 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
     func viewDidLoad() {
         snapshot = NSDiffableDataSourceSnapshot()
         snapshot.appendSections([.main])
-        interactor.searchItems(for: "text", page: 0)
+        interactor.searchItems(for: "text")
     }
 
     func viewWillAppear(animated: Bool) {
@@ -91,24 +90,23 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         return layout
     }
     
-    var snapsh: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {
-        return snapshot
+    func search(for text: String, page: UInt) {
+        interactor.getNextPageItems(for: text, page: page)
     }
     
-    func search(for text: String, page: UInt) {
-        interactor.searchItems(for: text, page: page)
+    func recipe(for indexPath: IndexPath) -> Recipe {
+        precondition(interactor.recipes.count<indexPath.row, "Should not be index out of bounds")
+        return interactor.recipes[indexPath.row]
     }
 }
 
 extension RecipeListPresenter: RecipeListInteractorDelegate {
-    func didFinishGettingItems(with result: Result<[Recipe], APIError>) {
-        switch result{
-        case .success(let recipes):
-            print("got items \(recipes.count)")
-            snapshot.appendItems(recipes, toSection: .main)
-            userInterface.reloadData()
-        case .failure(let error):
-            print(error.localizedDescription)
-        }
+    func didFinishGettingItems() {
+        snapshot.appendItems(interactor.recipes, toSection: .main)
+        userInterface.reloadData()
+    }
+    
+    func didErrorWhileGettingItems() {
+        print("got an error")
     }
 }

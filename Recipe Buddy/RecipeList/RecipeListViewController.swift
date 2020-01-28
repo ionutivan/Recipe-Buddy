@@ -14,6 +14,7 @@ final class RecipeListViewController: UIViewController {
     var presenter: RecipeListPresenterInterface!
     var collectionView: UICollectionView! = nil
     
+    weak var delegate: RecipeListViewInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ final class RecipeListViewController: UIViewController {
         cv.backgroundColor = .systemGray4
         collectionView = cv
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.delegate = self
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
@@ -31,7 +33,7 @@ final class RecipeListViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
         presenter.viewDidLoad()
-        datasource.apply(presenter.snapsh, animatingDifferences: true)
+        datasource.apply(presenter.snapshot, animatingDifferences: true)
         
     }
     
@@ -40,7 +42,6 @@ final class RecipeListViewController: UIViewController {
     }
     
     private var datasource: UICollectionViewDiffableDataSource<RecipeListSection, Recipe>!
-    
     
     private func configureDataSource() {
         
@@ -55,6 +56,7 @@ final class RecipeListViewController: UIViewController {
             
             return cell
         })
+        
     }
     
     
@@ -62,8 +64,15 @@ final class RecipeListViewController: UIViewController {
 
 extension RecipeListViewController: RecipeListViewProtocol {
     func reloadData() {
-        datasource.apply(presenter.snapsh, animatingDifferences: true)
+        datasource.apply(presenter.snapshot, animatingDifferences: true)
     }
 }
 
-extension RecipeListViewController: UICollectionViewDelegate {}
+extension RecipeListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipe = presenter.recipe(for: indexPath)
+        
+        delegate?.didTapCell(for: recipe)
+    }
+}

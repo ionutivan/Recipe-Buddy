@@ -13,16 +13,28 @@ enum APIError: Error {
     case decodingError
 }
 
+typealias networkCompletion = (Result<[Recipe],APIError>) -> Void
+
 final class RecipeListAPIService {
     
     let session: URLSessionProtocol
+    let baseURL = "http://www.recipepuppy.com/api/"
     
     init(session: URLSessionProtocol = URLSession.init(configuration: .default)) {
         self.session = session
     }
     
-    func getItems(for parameters: [String], page: UInt, completionHandler: @escaping (Result<[Recipe],APIError>) -> Void) {
-        let url = URL(string: "http://www.recipepuppy.com/api/?i=onions,garlic&p=1")!
+    func search(for parameters: [String], completionHandler: @escaping networkCompletion) {
+        getItems(for: parameters, page: 0,  completionHandler: completionHandler)
+    }
+    
+    func getNextPage(for parameters: [String], page: UInt, completion: @escaping networkCompletion) {
+        getItems(for: parameters, page: page, completionHandler: completion)
+    }
+    
+    private func getItems(for parameters: [String], page: UInt, completionHandler: @escaping networkCompletion) {
+        let searchString = parameters.joined(separator: ",")
+        let url = URL(string: "\(baseURL)?i=\(searchString)&p=\(page)")!
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
             

@@ -26,7 +26,12 @@ final class RecipeListWireframe: BaseWireframe {
 
 extension RecipeListWireframe: RecipeListWireframeInterface {
     func navigate(to option: RecipeListNavigationOption) {
-
+         switch option {
+         case .detail(let recipe):
+             navigationController?.pushWireframe(RecipeDetailWireframe(recipe: recipe))
+         case .favorites:
+            print("go to favorites")
+         }
     }
 }
 
