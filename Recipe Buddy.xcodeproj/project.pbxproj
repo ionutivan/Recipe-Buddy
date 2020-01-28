@@ -33,6 +33,7 @@
 		C673693923E0BE0D00D2281B /* RecipeDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */; };
 		C673693B23E0BE1F00D2281B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */; };
 		C673693D23E0BE3C00D2281B /* RecipeDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */; };
+		C673693F23E0DCB000D2281B /* RecipeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C673693E23E0DCB000D2281B /* RecipeDetail.storyboard */; };
 		EA99E7097F59F49046C3D828 /* Pods_Recipe_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB14E9005DA8EC83254AF5B /* Pods_Recipe_Buddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailWireframe.swift; sourceTree = "<group>"; };
 		C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailInterfaces.swift; sourceTree = "<group>"; };
+		C673693E23E0DCB000D2281B /* RecipeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeDetail.storyboard; sourceTree = "<group>"; };
 		E28F28AA79B4821D23698ECB /* Pods-Recipe Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Recipe Buddy/Pods-Recipe Buddy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				C673693423E0BDE300D2281B /* RecipeDetailInteractor.swift */,
+				C673693E23E0DCB000D2281B /* RecipeDetail.storyboard */,
 				C673693623E0BDF700D2281B /* RecipeDetailPresenter.swift */,
 				C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */,
 				C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */,
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C673693F23E0DCB000D2281B /* RecipeDetail.storyboard in Resources */,
 				C64CD67423DADB240043D768 /* RecipeList.storyboard in Resources */,
 				C64CD65823DAD5490043D768 /* LaunchScreen.storyboard in Resources */,
 				C64CD65523DAD5490043D768 /* Assets.xcassets in Resources */,
