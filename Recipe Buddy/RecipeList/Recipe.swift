@@ -8,9 +8,10 @@
 
 import Foundation
 
-class Recipe: Decodable {
-    var title: String
-    var href: String
-    var ingredients: String
-    var thumbnail: String
+struct Recipe: Decodable, Hashable {
+    let id = UUID().uuidString
+    let title: String
+    let href: String
+    let ingredients: String
+    let thumbnail: String
 }

@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum APIError: Error {
+    case networkError
+    case decodingError
+}
+
 final class RecipeListAPIService {
     
     let session: URLSessionProtocol
@@ -16,17 +21,29 @@ final class RecipeListAPIService {
         self.session = session
     }
     
-    func getItems(for parameters: [String], page: UInt) {
+    func getItems(for parameters: [String], page: UInt, completionHandler: @escaping (Result<[Recipe],APIError>) -> Void) {
         let url = URL(string: "http://www.recipepuppy.com/api/?i=onions,garlic&p=1")!
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
             
             if let data = data {
-                let s = String(data: data, encoding: .utf8)!
-                print(s)
+                do {
+                    let recipes = try JSONDecoder().decode(Feed.self, from: data)
+                    DispatchQueue.main.async {
+                        completionHandler(.success(recipes.results))
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(.decodingError))
+                    }
+                    
+                }
+                
             }
-            if let error = error {
-                print(error.localizedDescription)
+            if error != nil {
+                DispatchQueue.main.async {
+                    completionHandler(.failure(.networkError))
+                }
             }
         }.resume()
     }

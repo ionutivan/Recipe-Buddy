@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aPt-fu-aYR" kind="relationship" relationship="rootViewController" id="5Ns-RO-lS4"/>
+                        <segue destination="yKN-Y9-dR0" kind="relationship" relationship="rootViewController" id="USh-8p-QN5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPJ-Bo-lYk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -24,20 +24,31 @@
             <point key="canvasLocation" x="806" y="114"/>
         </scene>
         <!--Recipe List View Controller-->
-        <scene sceneID="R6r-0G-2aQ">
+        <scene sceneID="Dqn-jK-4H8">
             <objects>
-                <viewController storyboardIdentifier="RecipeListViewController" id="aPt-fu-aYR" customClass="RecipeListViewController" customModule="Recipe_Buddy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Aa-ly-ESb">
+                <viewController storyboardIdentifier="RecipeListViewController" id="yKN-Y9-dR0" customClass="RecipeListViewController" customModule="Recipe_Buddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nh5-8J-wJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="bhO-Wj-6Re"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DWe-yo-N7J">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="n4Y-3z-jke" firstAttribute="trailing" secondItem="DWe-yo-N7J" secondAttribute="trailing" id="8qq-qI-emg"/>
+                            <constraint firstItem="DWe-yo-N7J" firstAttribute="leading" secondItem="n4Y-3z-jke" secondAttribute="leading" id="Gmf-B0-jN0"/>
+                            <constraint firstItem="DWe-yo-N7J" firstAttribute="top" secondItem="n4Y-3z-jke" secondAttribute="top" id="XR2-e5-bPF"/>
+                            <constraint firstItem="n4Y-3z-jke" firstAttribute="bottom" secondItem="DWe-yo-N7J" secondAttribute="bottom" id="i3W-Wt-SoT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n4Y-3z-jke"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aZU-PP-uLY"/>
+                    <navigationItem key="navigationItem" id="czb-zi-cbX"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GAZ-8w-smr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzH-hi-qwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731" y="113"/>
+            <point key="canvasLocation" x="1723" y="114"/>
         </scene>
     </scenes>
 </document>

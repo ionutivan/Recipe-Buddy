@@ -6,12 +6,13 @@
 //  Copyright © 2020 Ionut Ivan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RecipeListViewInterface: AnyObject {
     func didTapFavoritesButton()
     func didTapSearchButton(with text: String)
     func didTapCell(for recipe: Recipe)
+    
 }
 
 protocol RecipeListPresenterInterface {
@@ -20,11 +21,16 @@ protocol RecipeListPresenterInterface {
     func viewDidAppear(animated: Bool)
     func viewWillDisappear(animated: Bool)
     func viewDidDisappear(animated: Bool)
+    func generateLayout() -> UICollectionViewLayout
+    var snapsh: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {get}
+    func search(for text: String, page: UInt)
 }
 
 protocol RecipeListInteractorInterface: AnyObject {}
 
-protocol RecipeListViewProtocol: AnyObject {}
+protocol RecipeListViewProtocol: AnyObject {
+    func reloadData()
+}
 
 enum RecipeListNavigationOption {
     case detail(Recipe)

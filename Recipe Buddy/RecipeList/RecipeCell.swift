@@ -6,4 +6,15 @@
 //  Copyright © 2020 Ionut Ivan. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class RecipeCell: UICollectionViewCell {
+    
+    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var ingredients: UILabel!
+    
+    @IBAction func makeFavorite(_: UIButton) {
+        
+    }
+}
