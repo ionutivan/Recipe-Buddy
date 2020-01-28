@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,11 @@
 		C64CD68823DF7CBB0043D768 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD68723DF7CBB0043D768 /* RecipeCell.swift */; };
 		C673693023DFA5BB00D2281B /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673692F23DFA5BB00D2281B /* Feed.swift */; };
 		C673693223DFAB7700D2281B /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673693123DFAB7700D2281B /* RecipeCell.xib */; };
+		C673693523E0BDE300D2281B /* RecipeDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693423E0BDE300D2281B /* RecipeDetailInteractor.swift */; };
+		C673693723E0BDF700D2281B /* RecipeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693623E0BDF700D2281B /* RecipeDetailPresenter.swift */; };
+		C673693923E0BE0D00D2281B /* RecipeDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */; };
+		C673693B23E0BE1F00D2281B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */; };
+		C673693D23E0BE3C00D2281B /* RecipeDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */; };
 		EA99E7097F59F49046C3D828 /* Pods_Recipe_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB14E9005DA8EC83254AF5B /* Pods_Recipe_Buddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +76,11 @@
 		C64CD68723DF7CBB0043D768 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		C673692F23DFA5BB00D2281B /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C673693123DFAB7700D2281B /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		C673693423E0BDE300D2281B /* RecipeDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailInteractor.swift; sourceTree = "<group>"; };
+		C673693623E0BDF700D2281B /* RecipeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailPresenter.swift; sourceTree = "<group>"; };
+		C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailWireframe.swift; sourceTree = "<group>"; };
+		C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailInterfaces.swift; sourceTree = "<group>"; };
 		E28F28AA79B4821D23698ECB /* Pods-Recipe Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Recipe Buddy/Pods-Recipe Buddy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +121,6 @@
 				B88520F81759C261A8206949 /* Pods-Recipe BuddyTests.debug.xcconfig */,
 				2B463F056A04D68B80C808D2 /* Pods-Recipe BuddyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,6 +147,7 @@
 		C64CD64A23DAD5480043D768 /* Recipe Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				C673693323E0BD9C00D2281B /* RecipeDetail */,
 				C64CD67223DADAE30043D768 /* RecipeList */,
 				C64CD66D23DAD6500043D768 /* Common */,
 				C64CD64B23DAD5480043D768 /* AppDelegate.swift */,
@@ -185,6 +195,18 @@
 				C673693123DFAB7700D2281B /* RecipeCell.xib */,
 			);
 			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		C673693323E0BD9C00D2281B /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C673693423E0BDE300D2281B /* RecipeDetailInteractor.swift */,
+				C673693623E0BDF700D2281B /* RecipeDetailPresenter.swift */,
+				C673693823E0BE0D00D2281B /* RecipeDetailWireframe.swift */,
+				C673693A23E0BE1F00D2281B /* RecipeDetailViewController.swift */,
+				C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */,
+			);
+			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,16 +381,21 @@
 				C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */,
 				C673693023DFA5BB00D2281B /* Feed.swift in Sources */,
 				C64CD64C23DAD5480043D768 /* AppDelegate.swift in Sources */,
+				C673693723E0BDF700D2281B /* RecipeDetailPresenter.swift in Sources */,
 				C64CD67823DADB6B0043D768 /* RecipeListPresenter.swift in Sources */,
+				C673693B23E0BE1F00D2281B /* RecipeDetailViewController.swift in Sources */,
+				C673693D23E0BE3C00D2281B /* RecipeDetailInterfaces.swift in Sources */,
 				C64CD68823DF7CBB0043D768 /* RecipeCell.swift in Sources */,
 				C64CD67623DADB4B0043D768 /* RecipeListInteractor.swift in Sources */,
 				C64CD67C23DADBB20043D768 /* RecipeListViewController.swift in Sources */,
 				C64CD68623DF64250043D768 /* UICollectionViewCell+Reusable.swift in Sources */,
+				C673693923E0BE0D00D2281B /* RecipeDetailWireframe.swift in Sources */,
 				C64CD67A23DADB860043D768 /* RecipeListWireframe.swift in Sources */,
 				C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */,
 				C64CD68423DF500D0043D768 /* URLSession+Testing.swift in Sources */,
 				C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */,
 				C64CD67E23DADBD20043D768 /* RecipeListInterfaces.swift in Sources */,
+				C673693523E0BDE300D2281B /* RecipeDetailInteractor.swift in Sources */,
 				C64CD68023DADF540043D768 /* Recipe.swift in Sources */,
 				C64CD68223DF38E50043D768 /* RecipeListAPIService.swift in Sources */,
 			);
