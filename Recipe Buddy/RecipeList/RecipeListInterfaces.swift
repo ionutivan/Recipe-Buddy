@@ -25,12 +25,14 @@ protocol RecipeListPresenterInterface {
     var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {get}
     func search(for text: String, page: UInt)
     func recipe(for indexPath: IndexPath) -> Recipe
+    func recipeCount() -> Int
 }
 
 protocol RecipeListInteractorInterface: AnyObject {}
 
 protocol RecipeListViewProtocol: AnyObject {
     func reloadData()
+    func present(alert: UIAlertController)
 }
 
 enum RecipeListNavigationOption {

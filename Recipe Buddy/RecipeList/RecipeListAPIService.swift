@@ -9,8 +9,8 @@
 import Foundation
 
 enum APIError: Error {
-    case networkError
-    case decodingError
+    case networkError(Error)
+    case decodingError(Error)
 }
 
 typealias networkCompletion = (Result<[Recipe],APIError>) -> Void
@@ -34,7 +34,6 @@ final class RecipeListAPIService {
     
     private func getItems(for text: String, page: UInt, completionHandler: @escaping networkCompletion) {
         let url = URL(string: "\(baseURL)?i=\(text)&p=\(page)")!
-        print(url)
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
             
@@ -47,15 +46,15 @@ final class RecipeListAPIService {
                 } catch {
                     DispatchQueue.main.async {
                         print(error)
-                        completionHandler(.failure(.decodingError))
+                        completionHandler(.failure(.decodingError(error)))
                     }
                     
                 }
                 
             }
-            if error != nil {
+            if let error = error {
                 DispatchQueue.main.async {
-                    completionHandler(.failure(.networkError))
+                    completionHandler(.failure(.networkError(error)))
                 }
             }
         }.resume()

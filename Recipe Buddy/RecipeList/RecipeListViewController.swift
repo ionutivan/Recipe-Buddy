@@ -34,7 +34,6 @@ final class RecipeListViewController: UIViewController {
         configureDataSource()
         presenter.viewDidLoad()
         datasource.apply(presenter.snapshot, animatingDifferences: true)
-        
     }
     
     func configureCollectionView() {
@@ -66,6 +65,10 @@ extension RecipeListViewController: RecipeListViewProtocol {
     func reloadData() {
         datasource.apply(presenter.snapshot, animatingDifferences: true)
     }
+    
+    func present(alert: UIAlertController) {
+        self.present(alert, animated: true)
+    }
 }
 
 extension RecipeListViewController: UICollectionViewDelegate {
@@ -75,4 +78,13 @@ extension RecipeListViewController: UICollectionViewDelegate {
         
         delegate?.didTapCell(for: recipe)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == presenter.recipeCount() - 3 {
+            presenter.search(for: "onion,garlic", page: 2)
+        }
+    }
 }
+
+
+

@@ -95,11 +95,19 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
     }
     
     func recipe(for indexPath: IndexPath) -> Recipe {
-        print(interactor.recipes.count)
-        print(indexPath.row)
-        print(indexPath)
         precondition(interactor.recipes.count>indexPath.row, "Should not be index out of bounds")
         return interactor.recipes[indexPath.row]
+    }
+    
+    func recipeCount() -> Int {
+        return interactor.recipes.count
+    }
+    
+    func present(error: Error) -> UIAlertController {
+        let alertController = UIAlertController(title: "An error occurred", message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        return alertController
     }
 }
 
@@ -109,7 +117,8 @@ extension RecipeListPresenter: RecipeListInteractorDelegate {
         userInterface.reloadData()
     }
     
-    func didErrorWhileGettingItems() {
-        print("got an error")
+    func didErrorWhileGettingItems(error: Error) {
+        let alertController = present(error: error)
+        userInterface.present(alert: alertController)
     }
 }

@@ -32,7 +32,7 @@ protocol RecipeListInteractorProtocol: AnyObject {
 extension RecipeListInteractor: RecipeListInteractorProtocol {
     func searchItems(for text: String) {
         // call the API service
-        print("search")
+        
         apiService.search(for: "onion,garlic", completionHandler: { [weak self] result in
             switch result {
             case .success(let recipes):
@@ -40,7 +40,7 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
                 self?.delegate?.didFinishGettingItems()
             case .failure(let error):
                 print(error)
-                self?.delegate?.didErrorWhileGettingItems()
+                self?.delegate?.didErrorWhileGettingItems(error: error)
             }
             
             })
@@ -55,7 +55,7 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
                 self?.delegate?.didFinishGettingItems()
             case .failure(let error):
                 print(error)
-                self?.delegate?.didErrorWhileGettingItems()
+                self?.delegate?.didErrorWhileGettingItems(error: error)
             }
         })
     }
@@ -63,5 +63,5 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
 
 protocol RecipeListInteractorDelegate: AnyObject {
     func didFinishGettingItems()
-    func didErrorWhileGettingItems()
+    func didErrorWhileGettingItems(error: Error)
 }
