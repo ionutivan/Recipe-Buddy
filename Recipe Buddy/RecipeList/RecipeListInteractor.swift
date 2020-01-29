@@ -16,6 +16,7 @@ final class RecipeListInteractor: NSObject {
     weak var delegate: RecipeListInteractorDelegate?
     let apiService: RecipeListAPIService
     var recipes: [Recipe] = []
+    var currentPage: UInt = 1
     
     init(apiService: RecipeListAPIService = RecipeListAPIService()) {
         self.apiService = apiService
@@ -27,6 +28,7 @@ protocol RecipeListInteractorProtocol: AnyObject {
     func searchItems(for text: String)
     func getNextPageItems(for text: String, page: UInt)
     var recipes: [Recipe] {get}
+    var currentPage: UInt {get}
 }
 
 extension RecipeListInteractor: RecipeListInteractorProtocol {

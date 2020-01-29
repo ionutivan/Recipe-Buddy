@@ -26,6 +26,7 @@ protocol RecipeListPresenterInterface {
     func search(for text: String, page: UInt)
     func recipe(for indexPath: IndexPath) -> Recipe
     func recipeCount() -> Int
+    var currentPage: UInt {get}
 }
 
 protocol RecipeListInteractorInterface: AnyObject {}

@@ -103,6 +103,10 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         return interactor.recipes.count
     }
     
+    var currentPage: UInt {
+        return interactor.currentPage
+    }
+    
     func present(error: Error) -> UIAlertController {
         let alertController = UIAlertController(title: "An error occurred", message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
