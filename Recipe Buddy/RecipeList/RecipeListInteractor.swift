@@ -15,11 +15,13 @@ enum RecipeListError {
 final class RecipeListInteractor: NSObject {
     weak var delegate: RecipeListInteractorDelegate?
     let apiService: RecipeListAPIService
+    let favsService: RecipeFavoritesService
     var recipes: [Recipe] = []
     var currentPage: UInt = 1
     
-    init(apiService: RecipeListAPIService = RecipeListAPIService()) {
+    init(apiService: RecipeListAPIService = RecipeListAPIService(), favsService: RecipeFavoritesService = RecipeFavoritesService()) {
         self.apiService = apiService
+        self.favsService = favsService
     }
     
 }
@@ -29,6 +31,9 @@ protocol RecipeListInteractorProtocol: AnyObject {
     func getNextPageItems(for text: String, page: UInt)
     var recipes: [Recipe] {get}
     var currentPage: UInt {get}
+    
+    func addToFavorites(recipe: Recipe)
+    func getFavorites() -> [Recipe]
 }
 
 extension RecipeListInteractor: RecipeListInteractorProtocol {
@@ -61,6 +66,25 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
                 self?.delegate?.didErrorWhileGettingItems(error: error)
             }
         })
+    }
+    
+    func addToFavorites(recipe: Recipe) {
+        var favorites = favsService.getFavorites()
+        if favsService.isInFavorites(recipe: recipe) {
+            return
+        }
+        favorites.append(recipe)
+        favsService.saveToFavorites(recipes: favorites)
+    }
+    
+    func getFavorites() -> [Recipe] {
+        return favsService.getFavorites()
+    }
+    
+    func removeFromFavorites(recipe: Recipe) {
+        let favorites = favsService.getFavorites()
+        let filtered = favorites.filter {$0.id != recipe.id}
+        favsService.saveToFavorites(recipes: filtered)
     }
 }
 

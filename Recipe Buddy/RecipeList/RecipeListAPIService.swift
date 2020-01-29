@@ -33,8 +33,6 @@ final class RecipeListAPIService {
     }
     
     private func getItems(for text: String, page: UInt, completionHandler: @escaping networkCompletion) {
-        print("asdasdasdasd")
-        print(page)
         let url = URL(string: "\(baseURL)?i=\(text)&p=\(page)")!
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in

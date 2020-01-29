@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe: Decodable, Hashable {
+struct Recipe: Codable, Hashable {
     let id = UUID().uuidString
     let title: String
     let href: String
