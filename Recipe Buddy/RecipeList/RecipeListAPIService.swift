@@ -36,7 +36,6 @@ final class RecipeListAPIService {
         let url = URL(string: "\(baseURL)?i=\(text)&p=\(page)")!
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
-            
             if let data = data {
                 do {
                     let recipes = try JSONDecoder().decode(Feed.self, from: data)
