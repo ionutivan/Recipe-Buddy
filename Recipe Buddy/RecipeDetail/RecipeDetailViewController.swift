@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import WebKit
 
 class RecipeDetailViewController: UIViewController {
     
     var presenter: RecipeDetailPresenterInterface!
+    
+    @IBOutlet weak var webview: WKWebView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webview.load(presenter.recipe.href)
+    }
 }
 
 extension RecipeDetailViewController: RecipeDetailViewInterface {}

@@ -46,6 +46,7 @@ final class RecipeListAPIService {
                     }
                 } catch {
                     DispatchQueue.main.async {
+                        print(error)
                         completionHandler(.failure(.decodingError))
                     }
                     

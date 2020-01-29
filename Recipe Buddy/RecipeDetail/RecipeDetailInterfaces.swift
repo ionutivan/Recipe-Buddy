@@ -16,6 +16,7 @@ protocol RecipeDetailPresenterInterface {
     func viewDidAppear(animated: Bool)
     func viewWillDisappear(animated: Bool)
     func viewDidDisappear(animated: Bool)
+    var recipe: Recipe {get}
 }
 
 enum RecipeDetailNavigationOption {

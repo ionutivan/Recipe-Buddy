@@ -95,7 +95,10 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
     }
     
     func recipe(for indexPath: IndexPath) -> Recipe {
-        precondition(interactor.recipes.count<indexPath.row, "Should not be index out of bounds")
+        print(interactor.recipes.count)
+        print(indexPath.row)
+        print(indexPath)
+        precondition(interactor.recipes.count>indexPath.row, "Should not be index out of bounds")
         return interactor.recipes[indexPath.row]
     }
 }

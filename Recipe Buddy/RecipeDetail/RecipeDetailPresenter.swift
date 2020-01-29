@@ -13,7 +13,7 @@ final class RecipeDetailPresenter {
     private weak var userInterface: RecipeDetailViewInterface?
     private let wireframe: RecipeDetailWireframeProtocol
     private let interactor: RecipeDetailInteractorProtocol
-    private let recipe: Recipe
+    let recipe: Recipe
     
     init(wireframe: RecipeDetailWireframeProtocol, UI: RecipeDetailViewInterface, interactor: RecipeDetailInteractorProtocol, recipe: Recipe) {
         self.wireframe = wireframe
@@ -45,5 +45,4 @@ extension RecipeDetailPresenter: RecipeDetailPresenterInterface {
     func viewDidDisappear(animated: Bool) {
         fatalError("Implementation pending...")
     }
-
 }
