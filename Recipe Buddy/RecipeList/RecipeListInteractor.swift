@@ -40,7 +40,7 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
     func searchItems(for text: String) {
         // call the API service
         
-        apiService.search(for: "onion,garlic", completionHandler: { [weak self] result in
+        apiService.search(for: text, completionHandler: { [weak self] result in
             switch result {
             case .success(let recipes):
                 self?.recipes = recipes
@@ -55,11 +55,10 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
     
     func getNextPageItems(for text: String, page: UInt=1) {
         currentPage = page
-        apiService.getNextPage(for: "onion,garlic", page: page, completion: { [weak self] result in
+        apiService.getNextPage(for: text, page: page, completion: { [weak self] result in
             switch result {
             case .success(let newRecipes):
                 self?.recipes += newRecipes
-                //there may be need to stick newRecipes into the didFinish method
                 self?.delegate?.didFinishGettingItems()
             case .failure(let error):
                 print(error)

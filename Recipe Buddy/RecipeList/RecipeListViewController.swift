@@ -83,7 +83,10 @@ extension RecipeListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == presenter.recipeCount() - 3 {
-            presenter.getNextPage(for: "onion,garlic", page: presenter.currentPage+1)
+            guard let searchText = searchBar.searchTextField.text else {
+                return
+            }
+            presenter.getNextPage(for: searchText, page: presenter.currentPage+1)
         }
     }
 }
