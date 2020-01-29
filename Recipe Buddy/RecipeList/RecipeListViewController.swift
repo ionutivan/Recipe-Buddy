@@ -54,7 +54,7 @@ final class RecipeListViewController: UIViewController {
             if let url = URL(string: recipe.thumbnail) {
                 cell.mainImage.kf.setImage(with: url)
             }
-            
+            cell.hasLactose.isHidden = !recipe.hasLactose
             return cell
         })
         

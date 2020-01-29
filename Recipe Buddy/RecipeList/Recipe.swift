@@ -14,4 +14,10 @@ struct Recipe: Decodable, Hashable {
     let href: String
     let ingredients: String
     let thumbnail: String
+    var hasLactose: Bool {
+        if ingredients.contains("milk") || ingredients.contains("cheese") {
+            return true
+        }
+        return false
+    }
 }

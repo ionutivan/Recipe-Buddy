@@ -48,11 +48,18 @@
                                     <action selector="makeFavorite:" destination="bkw-VY-MQr" eventType="touchUpInside" id="Hto-Xk-S05"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has lactose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdq-2h-Ciy">
+                                <rect key="frame" x="220" y="22" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="9zO-8q-MxA" firstAttribute="leading" secondItem="oIB-Nf-OM9" secondAttribute="leading" id="8dS-Yr-ZBV"/>
                             <constraint firstItem="oIB-Nf-OM9" firstAttribute="leading" secondItem="2RN-NT-VAt" secondAttribute="leading" constant="16" id="8mx-O1-eZY"/>
+                            <constraint firstAttribute="trailing" secondItem="pdq-2h-Ciy" secondAttribute="trailing" constant="26" id="ALI-c8-q9Y"/>
                             <constraint firstItem="Lqi-KH-zyM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oIB-Nf-OM9" secondAttribute="trailing" constant="10" id="OCH-hO-oE9"/>
                             <constraint firstItem="O34-FW-kKT" firstAttribute="top" secondItem="2RN-NT-VAt" secondAttribute="top" id="QM2-hA-GzE"/>
                             <constraint firstItem="Lqi-KH-zyM" firstAttribute="top" secondItem="oIB-Nf-OM9" secondAttribute="top" id="SWp-gk-c0L"/>
@@ -61,6 +68,7 @@
                             <constraint firstItem="oIB-Nf-OM9" firstAttribute="top" secondItem="O34-FW-kKT" secondAttribute="bottom" constant="16" id="Z3Z-l0-FQ4"/>
                             <constraint firstItem="9zO-8q-MxA" firstAttribute="top" secondItem="oIB-Nf-OM9" secondAttribute="bottom" constant="10" id="ZNY-Gt-G1D"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9zO-8q-MxA" secondAttribute="bottom" constant="16" id="eSR-jw-cnI"/>
+                            <constraint firstItem="pdq-2h-Ciy" firstAttribute="top" secondItem="2RN-NT-VAt" secondAttribute="top" constant="22" id="m8i-Kt-RZc"/>
                             <constraint firstItem="O34-FW-kKT" firstAttribute="leading" secondItem="2RN-NT-VAt" secondAttribute="leading" id="oVf-hL-Baq"/>
                         </constraints>
                     </view>
@@ -75,6 +83,7 @@
             </collectionViewCellContentView>
             <size key="customSize" width="336" height="301"/>
             <connections>
+                <outlet property="hasLactose" destination="pdq-2h-Ciy" id="5go-uW-eUH"/>
                 <outlet property="ingredients" destination="9zO-8q-MxA" id="5ss-gc-Mo4"/>
                 <outlet property="mainImage" destination="O34-FW-kKT" id="9FL-vW-n8G"/>
                 <outlet property="name" destination="oIB-Nf-OM9" id="PNd-gX-SXr"/>
