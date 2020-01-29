@@ -90,7 +90,11 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         return layout
     }
     
-    func search(for text: String, page: UInt) {
+    func search(for text: String) {
+        interactor.searchItems(for: text)
+    }
+    
+    func getNextPage(for text: String, page: UInt) {
         interactor.getNextPageItems(for: text, page: page)
     }
     

@@ -23,7 +23,8 @@ protocol RecipeListPresenterInterface {
     func viewDidDisappear(animated: Bool)
     func generateLayout() -> UICollectionViewLayout
     var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {get}
-    func search(for text: String, page: UInt)
+    func search(for text: String)
+    func getNextPage(for text: String, page: UInt)
     func recipe(for indexPath: IndexPath) -> Recipe
     func recipeCount() -> Int
     var currentPage: UInt {get}

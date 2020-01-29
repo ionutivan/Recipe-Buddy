@@ -49,6 +49,7 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
     }
     
     func getNextPageItems(for text: String, page: UInt=1) {
+        currentPage = page
         apiService.getNextPage(for: "onion,garlic", page: page, completion: { [weak self] result in
             switch result {
             case .success(let newRecipes):

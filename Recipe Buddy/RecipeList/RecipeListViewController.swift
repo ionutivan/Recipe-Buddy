@@ -14,6 +14,8 @@ final class RecipeListViewController: UIViewController {
     var presenter: RecipeListPresenterInterface!
     var collectionView: UICollectionView! = nil
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     weak var delegate: RecipeListViewInterface?
     
     override func viewDidLoad() {
@@ -25,7 +27,7 @@ final class RecipeListViewController: UIViewController {
         collectionView.delegate = self
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
+            self.collectionView.topAnchor.constraint(equalTo: self.searchBar.bottomAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
@@ -81,8 +83,23 @@ extension RecipeListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == presenter.recipeCount() - 3 {
-            presenter.search(for: "onion,garlic", page: presenter.currentPage+1)
+            presenter.getNextPage(for: "onion,garlic", page: presenter.currentPage+1)
         }
+    }
+}
+
+extension RecipeListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.searchTextField.text else {
+            searchBar.endEditing(true)
+            return
+        }
+        presenter.search(for: searchText)
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         searchBar.endEditing(true)
     }
 }
 

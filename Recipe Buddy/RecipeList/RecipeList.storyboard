@@ -31,20 +31,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DWe-yo-N7J">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                            </stackView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Rlv-DP-4Zj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yKN-Y9-dR0" id="cnC-NX-PaT"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="n4Y-3z-jke" firstAttribute="trailing" secondItem="DWe-yo-N7J" secondAttribute="trailing" id="8qq-qI-emg"/>
-                            <constraint firstItem="DWe-yo-N7J" firstAttribute="leading" secondItem="n4Y-3z-jke" secondAttribute="leading" id="Gmf-B0-jN0"/>
-                            <constraint firstItem="DWe-yo-N7J" firstAttribute="top" secondItem="n4Y-3z-jke" secondAttribute="top" id="XR2-e5-bPF"/>
-                            <constraint firstItem="n4Y-3z-jke" firstAttribute="bottom" secondItem="DWe-yo-N7J" secondAttribute="bottom" id="i3W-Wt-SoT"/>
+                            <constraint firstItem="Rlv-DP-4Zj" firstAttribute="leading" secondItem="n4Y-3z-jke" secondAttribute="leading" id="l5H-vJ-rei"/>
+                            <constraint firstItem="Rlv-DP-4Zj" firstAttribute="top" secondItem="n4Y-3z-jke" secondAttribute="top" id="qOU-Qh-EcP"/>
+                            <constraint firstItem="n4Y-3z-jke" firstAttribute="trailing" secondItem="Rlv-DP-4Zj" secondAttribute="trailing" id="ugf-m4-fXU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n4Y-3z-jke"/>
                     </view>
                     <navigationItem key="navigationItem" id="czb-zi-cbX"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Rlv-DP-4Zj" id="Gan-1B-OkO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzH-hi-qwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
