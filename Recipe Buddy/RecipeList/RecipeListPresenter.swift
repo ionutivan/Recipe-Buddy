@@ -66,7 +66,7 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
     func viewDidLoad() {
         snapshot = NSDiffableDataSourceSnapshot()
         snapshot.appendSections([.main])
-        interactor.searchItems(for: "text")
+        interactor.searchItems(for: "onion,garlic")
     }
 
     func viewWillAppear(animated: Bool) {

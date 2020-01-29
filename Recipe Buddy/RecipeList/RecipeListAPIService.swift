@@ -24,17 +24,17 @@ final class RecipeListAPIService {
         self.session = session
     }
     
-    func search(for parameters: [String], completionHandler: @escaping networkCompletion) {
-        getItems(for: parameters, page: 0,  completionHandler: completionHandler)
+    func search(for text: String, completionHandler: @escaping networkCompletion) {
+        getItems(for: text, page: 1,  completionHandler: completionHandler)
     }
     
-    func getNextPage(for parameters: [String], page: UInt, completion: @escaping networkCompletion) {
-        getItems(for: parameters, page: page, completionHandler: completion)
+    func getNextPage(for text: String, page: UInt, completion: @escaping networkCompletion) {
+        getItems(for: text, page: page, completionHandler: completion)
     }
     
-    private func getItems(for parameters: [String], page: UInt, completionHandler: @escaping networkCompletion) {
-        let searchString = parameters.joined(separator: ",")
-        let url = URL(string: "\(baseURL)?i=\(searchString)&p=\(page)")!
+    private func getItems(for text: String, page: UInt, completionHandler: @escaping networkCompletion) {
+        let url = URL(string: "\(baseURL)?i=\(text)&p=\(page)")!
+        print(url)
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
             

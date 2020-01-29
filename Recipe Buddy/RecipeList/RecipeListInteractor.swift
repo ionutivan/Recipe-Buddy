@@ -32,13 +32,22 @@ protocol RecipeListInteractorProtocol: AnyObject {
 extension RecipeListInteractor: RecipeListInteractorProtocol {
     func searchItems(for text: String) {
         // call the API service
-        apiService.search(for: ["onion","garlic"], completionHandler: { [weak self] result in
-            self?.delegate?.didFinishGettingItems()
+        print("search")
+        apiService.search(for: "onion,garlic", completionHandler: { [weak self] result in
+            switch result {
+            case .success(let recipes):
+                self?.recipes = recipes
+                self?.delegate?.didFinishGettingItems()
+            case .failure(let error):
+                print(error)
+                self?.delegate?.didErrorWhileGettingItems()
+            }
+            
             })
     }
     
     func getNextPageItems(for text: String, page: UInt=1) {
-        apiService.getNextPage(for: ["onion","garlic"], page: page, completion: { [weak self] result in
+        apiService.getNextPage(for: "onion,garlic", page: page, completion: { [weak self] result in
             switch result {
             case .success(let newRecipes):
                 self?.recipes += newRecipes
@@ -48,7 +57,6 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
                 print(error)
                 self?.delegate?.didErrorWhileGettingItems()
             }
-            self?.delegate?.didFinishGettingItems()
         })
     }
 }
