@@ -68,9 +68,15 @@ extension RecipeListViewController: RecipeListViewProtocol {
         datasource.apply(presenter.snapshot, animatingDifferences: true)
     }
     
-    func present(alert: UIAlertController) {
-        self.present(alert, animated: true)
+    func present(alertText: String) {
+        let alertController = UIAlertController(title: "An error occurred", message: alertText, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true)
     }
+    
+    
 }
 
 extension RecipeListViewController: UICollectionViewDelegate {

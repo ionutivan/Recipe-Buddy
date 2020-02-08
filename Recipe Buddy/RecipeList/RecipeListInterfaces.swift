@@ -33,7 +33,7 @@ protocol RecipeListInteractorInterface: AnyObject {}
 
 protocol RecipeListViewProtocol: AnyObject {
     func reloadData()
-    func present(alert: UIAlertController)
+    func present(alertText: String)
 }
 
 enum RecipeListNavigationOption {

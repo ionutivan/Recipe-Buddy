@@ -101,11 +101,8 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         return interactor.currentPage
     }
     
-    func present(error: Error) -> UIAlertController {
-        let alertController = UIAlertController(title: "An error occurred", message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        return alertController
+    func present(error: Error) {
+        userInterface.present(alertText: error.localizedDescription)
     }
     
     func receivedTap(for indexPath: IndexPath) {
@@ -126,11 +123,7 @@ extension RecipeListPresenter: RecipeListInteractorDelegate {
     
     func didErrorWhileGettingItems(error: Error) {
         DispatchQueue.main.async { [weak self] in
-            if let alertController = self?.present(error: error) {
-                self?.userInterface.present(alert: alertController)
-            }
+            self?.present(error: error)
         }
-        
-        
     }
 }
