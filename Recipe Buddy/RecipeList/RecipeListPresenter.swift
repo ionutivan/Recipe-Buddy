@@ -120,12 +120,21 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
 
 extension RecipeListPresenter: RecipeListInteractorDelegate {
     func didFinishGettingItems() {
-        snapshot.appendItems(interactor.recipes, toSection: .main)
-        userInterface.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            if let interactor = self?.interactor {
+                self?.snapshot.appendItems(interactor.recipes, toSection: .main)
+                self?.userInterface.reloadData()
+            }
+        }
     }
     
     func didErrorWhileGettingItems(error: Error) {
-        let alertController = present(error: error)
-        userInterface.present(alert: alertController)
+        DispatchQueue.main.async { [weak self] in
+            if let alertController = self?.present(error: error) {
+                self?.userInterface.present(alert: alertController)
+            }
+        }
+        
+        
     }
 }
