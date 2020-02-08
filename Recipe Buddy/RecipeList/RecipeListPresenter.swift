@@ -19,9 +19,6 @@ final class RecipeListPresenter {
     private let interactor: RecipeListInteractorProtocol
     private let wireframe: RecipeListWireframeInterface
     
-    var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>!
-    
-    
     init(wireframe: RecipeListWireframeInterface, interactor: RecipeListInteractorProtocol, view: RecipeListViewProtocol) {
         self.wireframe = wireframe
         self.interactor = interactor
@@ -30,39 +27,11 @@ final class RecipeListPresenter {
         (interactor as? RecipeListInteractor)?.delegate = self
     }
     
-    private var collectionLayoutSection: NSCollectionLayoutSection {
-                
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(220)))
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),  heightDimension: .estimated(220))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
-        (userInterface as! RecipeListViewController).delegate = self
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        
-        return section
-    }
-    
-}
-
-extension RecipeListPresenter: RecipeListViewInterface {
-    func didTapSearchButton(with text: String) {
-        interactor.searchItems(for: text)
-    }
-    
-    func didTapFavoritesButton() {
-        wireframe.navigate(to: .favorites)
-    }
-    
 }
 
 extension RecipeListPresenter: RecipeListPresenterInterface {
 
-    func viewDidLoad() {
-        snapshot = NSDiffableDataSourceSnapshot()
-        snapshot.appendSections([.main])
-    }
+    func viewDidLoad() {}
 
     func viewWillAppear(animated: Bool) {
         fatalError("Implementation pending...")
@@ -78,11 +47,6 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
 
     func viewDidDisappear(animated: Bool) {
         fatalError("Implementation pending...")
-    }
-    
-    func generateLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout(section: collectionLayoutSection)
-        return layout
     }
     
     func search(for text: String) {
@@ -115,7 +79,7 @@ extension RecipeListPresenter: RecipeListInteractorDelegate {
     func didFinishGettingItems() {
         DispatchQueue.main.async { [weak self] in
             if let interactor = self?.interactor {
-                self?.snapshot.appendItems(interactor.recipes, toSection: .main)
+                self?.userInterface.show(recipes: interactor.recipes)
                 self?.userInterface.reloadData()
             }
         }

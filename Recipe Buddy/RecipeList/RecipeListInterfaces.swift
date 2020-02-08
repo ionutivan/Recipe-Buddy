@@ -8,20 +8,12 @@
 
 import UIKit
 
-protocol RecipeListViewInterface: AnyObject {
-    func didTapFavoritesButton()
-    func didTapSearchButton(with text: String)
-    
-}
-
 protocol RecipeListPresenterInterface {
     func viewDidLoad()
     func viewWillAppear(animated: Bool)
     func viewDidAppear(animated: Bool)
     func viewWillDisappear(animated: Bool)
     func viewDidDisappear(animated: Bool)
-    func generateLayout() -> UICollectionViewLayout
-    var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {get}
     func search(for text: String)
     func getNextPage(for text: String, page: UInt)
     func receivedTap(for indexPath: IndexPath)
@@ -34,6 +26,7 @@ protocol RecipeListInteractorInterface: AnyObject {}
 protocol RecipeListViewProtocol: AnyObject {
     func reloadData()
     func present(alertText: String)
+    func show(recipes: [Recipe])
 }
 
 enum RecipeListNavigationOption {

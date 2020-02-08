@@ -16,11 +16,23 @@ final class RecipeListViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    weak var delegate: RecipeListViewInterface?
+    var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>!
+    private var collectionLayoutSection: NSCollectionLayoutSection {
+                
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(220)))
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),  heightDimension: .estimated(220))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        return section
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cv = UICollectionView(frame: view.bounds, collectionViewLayout: presenter.generateLayout())
+        let cv = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
         cv.backgroundColor = .systemGray4
         collectionView = cv
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,8 +46,10 @@ final class RecipeListViewController: UIViewController {
         ])
         configureCollectionView()
         configureDataSource()
+        snapshot = NSDiffableDataSourceSnapshot()
+        snapshot.appendSections([.main])
         presenter.viewDidLoad()
-        datasource.apply(presenter.snapshot, animatingDifferences: true)
+        datasource.apply(snapshot, animatingDifferences: true)
     }
     
     func configureCollectionView() {
@@ -60,12 +74,21 @@ final class RecipeListViewController: UIViewController {
         
     }
     
+    func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout(section: collectionLayoutSection)
+        return layout
+    }
+    
     
 }
 
 extension RecipeListViewController: RecipeListViewProtocol {
+    func show(recipes: [Recipe]) {
+        snapshot.appendItems(recipes, toSection: .main)
+    }
+    
     func reloadData() {
-        datasource.apply(presenter.snapshot, animatingDifferences: true)
+        datasource.apply(snapshot, animatingDifferences: true)
     }
     
     func present(alertText: String) {
