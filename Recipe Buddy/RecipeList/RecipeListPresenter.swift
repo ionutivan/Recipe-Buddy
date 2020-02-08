@@ -55,10 +55,6 @@ extension RecipeListPresenter: RecipeListViewInterface {
         wireframe.navigate(to: .favorites)
     }
     
-    func didTapCell(for recipe: Recipe) {
-        wireframe.navigate(to: .detail(recipe))
-    }
-    
 }
 
 extension RecipeListPresenter: RecipeListPresenterInterface {
@@ -97,11 +93,6 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         interactor.getNextPageItems(for: text, page: page)
     }
     
-    func recipe(for indexPath: IndexPath) -> Recipe {
-        precondition(interactor.recipes.count>indexPath.row, "Should not be index out of bounds")
-        return interactor.recipes[indexPath.row]
-    }
-    
     func recipeCount() -> Int {
         return interactor.recipes.count
     }
@@ -115,6 +106,11 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         return alertController
+    }
+    
+    func receivedTap(for indexPath: IndexPath) {
+        let recipe = interactor.recipe(for: indexPath)
+        wireframe.navigate(to: .detail(recipe))
     }
 }
 

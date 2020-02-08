@@ -34,6 +34,7 @@ protocol RecipeListInteractorProtocol: AnyObject {
     
     func addToFavorites(recipe: Recipe)
     func getFavorites() -> [Recipe]
+    func recipe(for indexPath: IndexPath) -> Recipe
 }
 
 extension RecipeListInteractor: RecipeListInteractorProtocol {
@@ -65,6 +66,11 @@ extension RecipeListInteractor: RecipeListInteractorProtocol {
                 self?.delegate?.didErrorWhileGettingItems(error: error)
             }
         })
+    }
+    
+    func recipe(for indexPath: IndexPath) -> Recipe {
+        precondition(recipes.count>indexPath.row, "Should not be index out of bounds")
+        return recipes[indexPath.row]
     }
     
     func addToFavorites(recipe: Recipe) {

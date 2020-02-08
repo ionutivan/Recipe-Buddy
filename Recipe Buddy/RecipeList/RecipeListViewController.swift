@@ -76,9 +76,7 @@ extension RecipeListViewController: RecipeListViewProtocol {
 extension RecipeListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let recipe = presenter.recipe(for: indexPath)
-        //presenter.tapforindexpath
-        delegate?.didTapCell(for: recipe)
+        presenter.receivedTap(for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

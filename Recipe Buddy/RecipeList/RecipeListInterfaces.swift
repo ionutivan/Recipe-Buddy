@@ -11,7 +11,6 @@ import UIKit
 protocol RecipeListViewInterface: AnyObject {
     func didTapFavoritesButton()
     func didTapSearchButton(with text: String)
-    func didTapCell(for recipe: Recipe)
     
 }
 
@@ -25,7 +24,7 @@ protocol RecipeListPresenterInterface {
     var snapshot: NSDiffableDataSourceSnapshot<RecipeListSection, Recipe>! {get}
     func search(for text: String)
     func getNextPage(for text: String, page: UInt)
-    func recipe(for indexPath: IndexPath) -> Recipe
+    func receivedTap(for indexPath: IndexPath)
     func recipeCount() -> Int
     var currentPage: UInt {get}
 }
