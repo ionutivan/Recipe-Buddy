@@ -73,6 +73,10 @@ extension RecipeListPresenter: RecipeListPresenterInterface {
         let recipe = interactor.recipe(for: indexPath)
         wireframe.navigate(to: .detail(recipe))
     }
+  
+  func didTapFavorites() {
+    wireframe.navigate(to: .favorites)
+  }
 }
 
 extension RecipeListPresenter: RecipeListInteractorDelegate {

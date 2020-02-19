@@ -78,6 +78,10 @@ final class RecipeListViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: collectionLayoutSection)
         return layout
     }
+  
+  func didTapFavorites() {
+    presenter.didTapFavorites()
+  }
     
     
 }

@@ -19,6 +19,7 @@ protocol RecipeListPresenterInterface {
     func receivedTap(for indexPath: IndexPath)
     func recipeCount() -> Int
     var currentPage: UInt {get}
+  func didTapFavorites()
 }
 
 protocol RecipeListInteractorInterface: AnyObject {}
@@ -32,6 +33,23 @@ protocol RecipeListViewProtocol: AnyObject {
 enum RecipeListNavigationOption {
     case detail(Recipe)
     case favorites
+}
+
+extension RecipeListNavigationOption: Equatable {
+  static func == (lhs: Self, rhs: Self) -> Bool {
+    switch (lhs, rhs) {
+    case (favorites, favorites):
+      return true
+    case (detail(let recipe1), detail(let recipe2)):
+      if recipe1.id == recipe2.id {
+        return true
+      } else {
+        return false
+      }
+    default:
+      return false
+  }
+  }
 }
 
 protocol RecipeListWireframeInterface {

@@ -12,7 +12,6 @@
 		C64CD64E23DAD5480043D768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD64D23DAD5480043D768 /* SceneDelegate.swift */; };
 		C64CD65523DAD5490043D768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C64CD65423DAD5490043D768 /* Assets.xcassets */; };
 		C64CD65823DAD5490043D768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64CD65623DAD5490043D768 /* LaunchScreen.storyboard */; };
-		C64CD66323DAD54A0043D768 /* Recipe_BuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */; };
 		C64CD66F23DAD69D0043D768 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */; };
 		C64CD67123DAD6F30043D768 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */; };
 		C64CD67423DADB240043D768 /* RecipeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64CD67323DADB240043D768 /* RecipeList.storyboard */; };
@@ -36,6 +35,8 @@
 		C673693F23E0DCB000D2281B /* RecipeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C673693E23E0DCB000D2281B /* RecipeDetail.storyboard */; };
 		C673694123E1834000D2281B /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673694023E1834000D2281B /* WKWebView+Load.swift */; };
 		C673694323E1A3DA00D2281B /* RecipeFavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C673694223E1A3DA00D2281B /* RecipeFavoritesService.swift */; };
+		C6D402DA23FD443900487DA4 /* RecipeListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D402D923FD443900487DA4 /* RecipeListPresenterTests.swift */; };
+		C6D402DE23FD486600487DA4 /* RecipeListWireframeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D402DD23FD486600487DA4 /* RecipeListWireframeMock.swift */; };
 		EA99E7097F59F49046C3D828 /* Pods_Recipe_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB14E9005DA8EC83254AF5B /* Pods_Recipe_Buddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +63,6 @@
 		C64CD65723DAD5490043D768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C64CD65923DAD5490043D768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C64CD65E23DAD54A0043D768 /* Recipe BuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Recipe BuddyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe_BuddyTests.swift; sourceTree = "<group>"; };
 		C64CD66423DAD54A0043D768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C64CD66E23DAD69D0043D768 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		C64CD67023DAD6F30043D768 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
@@ -87,6 +87,8 @@
 		C673693E23E0DCB000D2281B /* RecipeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeDetail.storyboard; sourceTree = "<group>"; };
 		C673694023E1834000D2281B /* WKWebView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Load.swift"; sourceTree = "<group>"; };
 		C673694223E1A3DA00D2281B /* RecipeFavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoritesService.swift; sourceTree = "<group>"; };
+		C6D402D923FD443900487DA4 /* RecipeListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenterTests.swift; sourceTree = "<group>"; };
+		C6D402DD23FD486600487DA4 /* RecipeListWireframeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListWireframeMock.swift; sourceTree = "<group>"; };
 		E28F28AA79B4821D23698ECB /* Pods-Recipe Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Recipe Buddy/Pods-Recipe Buddy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +170,8 @@
 		C64CD66123DAD54A0043D768 /* Recipe BuddyTests */ = {
 			isa = PBXGroup;
 			children = (
-				C64CD66223DAD54A0043D768 /* Recipe_BuddyTests.swift */,
+				C6D402DB23FD483D00487DA4 /* Test types */,
+				C6D402D723FD43D300487DA4 /* Cases */,
 				C64CD66423DAD54A0043D768 /* Info.plist */,
 			);
 			path = "Recipe BuddyTests";
@@ -216,6 +219,38 @@
 				C673693C23E0BE3C00D2281B /* RecipeDetailInterfaces.swift */,
 			);
 			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		C6D402D723FD43D300487DA4 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				C6D402D823FD43EF00487DA4 /* RecipeList */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		C6D402D823FD43EF00487DA4 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				C6D402D923FD443900487DA4 /* RecipeListPresenterTests.swift */,
+			);
+			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		C6D402DB23FD483D00487DA4 /* Test types */ = {
+			isa = PBXGroup;
+			children = (
+				C6D402DC23FD484500487DA4 /* Mocks */,
+			);
+			path = "Test types";
+			sourceTree = "<group>";
+		};
+		C6D402DC23FD484500487DA4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C6D402DD23FD486600487DA4 /* RecipeListWireframeMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +309,7 @@
 					};
 					C64CD65D23DAD54A0043D768 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 						TestTargetID = C64CD64723DAD5480043D768;
 					};
 				};
@@ -417,7 +453,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C64CD66323DAD54A0043D768 /* Recipe_BuddyTests.swift in Sources */,
+				C6D402DE23FD486600487DA4 /* RecipeListWireframeMock.swift in Sources */,
+				C6D402DA23FD443900487DA4 /* RecipeListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +636,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Recipe BuddyTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -609,6 +647,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nasa.Recipe-BuddyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Recipe Buddy.app/Recipe Buddy";
@@ -621,6 +660,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Recipe BuddyTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
